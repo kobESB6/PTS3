@@ -1,25 +1,55 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
-addEmployeesBtn.addEventListener('click', (addEmployeesBtn) => EmployeesBTN);
-;
-// call for Add employee button to respond to click event
-addEmployeesBtn.addEventListener('click', () =>);
+
 // Collect employee data
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+  const employees = [];
+
+  let keepGoing = true;  
+  
+  //  Loop until user finishes adding employees
+ while (keepGoing) {
+    const firstName = prompt("Enter the employee's first name:");
+    const lastName = prompt("Enter the employee's last name:");
+    let salary = prompt("Enter the employee's salary:");
+
+//salary validation
+    if (isNaN(salary)) {
+      salary = 0;
+    } 
+// employee object
+    const employee = {
+      firstName: firstName,
+      lastName: lastName,
+      salary: parseFloat(salary)
+    };
+  // Add employee to the array
+    employees.push(employee);
+    addingEmployees = confirm("Do you want to add another employee?");
+  }
+//return employees
+return employees;
 }
 
-// Display the average salary
-const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
-}
+// //Display  salary
+// const displayAverageSalary = function(employeesArray) {
+//   let totalSalary = 0;
+//   const numEmployees = employeesArray.length;
 
-// Select a random employee
-const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
-}
+//   for(const employee of employeesArray) {
+//   totalSalary += employee.salary;
+//   }
 
-/*
+//Calculate avg salary
+const averageSalary = totalSalary / numEmployees; 
+  console.log(`Average salary of ${numEmployees} employees is ${averageSalary.toFixed(2)}`);
+
+// //Get random employee
+// const getRandomEmployee = function(employeesArray) {
+//   const randomEmployee = employeesArray[Math.floor(Math.random()*employeesArray.length)];
+//   console.log(`Random Employee: ${randomEmployee.firstName} ${randomEmployee.lastName},`)}
+  
+  /*
   ====================
   STARTER CODE
   Do not modify any of the code below this line:

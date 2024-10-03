@@ -12,6 +12,7 @@ const collectEmployees = function() {
     const firstName = prompt("Enter the employee's first name:");
     const lastName = prompt("Enter the employee's last name:");
     let salary = prompt("Enter the employee's salary:");
+   
 
 //salary validation
     if (isNaN(salary)) {
@@ -25,30 +26,33 @@ const collectEmployees = function() {
     };
   // Add employee to the array
     employees.push(employee);
-    addingEmployees = confirm("Do you want to add another employee?");
+    keepGoing = confirm("Do you want to add another employee?");
+   
   }
 //return employees
 return employees;
 }
 
 // //Display  salary
-// const displayAverageSalary = function(employeesArray) {
-//   let totalSalary = 0;
-//   const numEmployees = employeesArray.length;
-
-//   for(const employee of employeesArray) {
-//   totalSalary += employee.salary;
+function displayAverageSalary(employees) {
+      
+  let totalSalary = employees.reduce((sum, employee) => sum + employee.salary, 0);
+      let averageSalary = totalSalary / employees.length;
+      console.log(`Number of Employees: ${employees.length}`);
+      console.log(`Average Salary: ${averageSalary.toFixed(2)}`);
+  }
 //   }
 
-//Calculate avg salary
-const averageSalary = totalSalary / numEmployees; 
-  console.log(`Average salary of ${numEmployees} employees is ${averageSalary.toFixed(2)}`);
+// //Calculate avg salary
+// const averageSalary = totalSalary / numEmployees; 
+//   console.log(`Average salary of ${numEmployees} employees is ${averageSalary.toFixed(2)}`);
 
 // //Get random employee
-// const getRandomEmployee = function(employeesArray) {
-//   const randomEmployee = employeesArray[Math.floor(Math.random()*employeesArray.length)];
-//   console.log(`Random Employee: ${randomEmployee.firstName} ${randomEmployee.lastName},`)}
-  
+function getRandomEmployee(employees) {
+  let randomIndex = Math.floor(Math.random() * employees.length);
+  let employee = employees[randomIndex];
+  console.log(`Random Employee: ${employee.firstName} ${employee.lastName}`);
+}
   /*
   ====================
   STARTER CODE
@@ -114,3 +118,5 @@ const trackEmployeeData = function() {
 
 // Add event listener to 'Add Employees' button
 addEmployeesBtn.addEventListener('click', trackEmployeeData);
+
+collectEmployees();

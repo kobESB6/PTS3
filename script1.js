@@ -19,13 +19,7 @@
 // 2. **displayAverageSalary:** This function takes the generated array of employees and logs the average salary and the number of employees to the console using a template literal string.
 //     javascript
     
-function displayAverageSalary(employees) {
-      
-    let totalSalary = employees.reduce((sum, employee) => sum + employee.salary, 0);
-        let averageSalary = totalSalary / employees.length;
-        console.log(`Number of Employees: ${employees.length}`);
-        console.log(`Average Salary: ${averageSalary.toFixed(2)}`);
-    }
+
 
 // 3. **getRandomEmployee:** This function takes the generated array of employees, randomly selects one employee, and logs their full name to the console using a template literal.
 //     ```javascript
